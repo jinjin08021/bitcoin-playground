@@ -28,6 +28,7 @@ function getWallet(hd,hdIndex){
   }
 }
 
+// https://iancoleman.io/multisig/
 function generateMultisigAddress(publicKeys, requiredSig){
 
   let publicKeysList = publicKeys.split("\n");

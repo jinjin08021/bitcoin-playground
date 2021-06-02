@@ -81,24 +81,26 @@ function BitcoinAddress(props){
 
   return (
     <div>
-      <Button variant="info" size="lg" onClick={onClickButtonHandler.bind(this,)}>
-        Generate
-      </Button>
-        <div>
-          <span className = "bold">Mnemonic</span>
-        </div>
-        <div className= "inline-flex">
-          <Form.Control type="text" placeholder={mnemonic} readOnly className="inputContainer"/>
-          <i className="fas fa-copy" value = {mnemonic} onClick ={onClickCopyHandler.bind(this)}></i>
-        </div>
-        <div>
-          <span className = "bold">Seed</span>
-        </div>
-        <div className = "inline-flex">
-          <Form.Control type="text" placeholder={seed} readOnly className="inputContainer"/>
-          <i className="fas fa-copy" value = {seed} onClick ={onClickCopyHandler.bind(this)}></i>
-        </div>
-        <BitcoinHDWalletInfo hd = {hd}/>
+      <div className="center">
+        <Button variant="info" size="lg" onClick={onClickButtonHandler.bind(this,)}>
+          Generate
+        </Button>
+      </div>
+      <div>
+        <span className = "bold">Mnemonic</span>
+      </div>
+      <div className= "inline-flex">
+        <Form.Control type="text" placeholder={mnemonic} readOnly className="inputContainer"/>
+        <i className="fas fa-copy" value = {mnemonic} onClick ={onClickCopyHandler.bind(this)}></i>
+      </div>
+      <div>
+        <span className = "bold">Seed</span>
+      </div>
+      <div className = "inline-flex">
+        <Form.Control type="text" placeholder={seed} readOnly className="inputContainer"/>
+        <i className="fas fa-copy" value = {seed} onClick ={onClickCopyHandler.bind(this)}></i>
+      </div>
+      <BitcoinHDWalletInfo hd = {hd}/>
     </div>
 
   )
@@ -213,8 +215,11 @@ function MultisigAddress(){
     else{
       alert("invalid input")
     }
+  }
 
-
+  const onClickCopyHandler = (e) =>{
+    const value = e.target.getAttribute("value")
+    copy(value)
   }
 
 
@@ -226,13 +231,19 @@ function MultisigAddress(){
       </Form.Group>
       <span>Enter number of required signiture: </span>
       <Form.Control type="number" placeholder="" className="md" id="numSig"/>
-      <div className="generate-button">
+      <div className="generate-button center">
         <Button variant="info" size="lg" onClick={onClickButtonHandler.bind(this,)}>
           Generate
         </Button>
       </div>
       <div>
-        Address : {state}
+        <div>
+          <span className="bold">Address</span>
+        </div>
+        <div className = "inline-flex">
+          <Form.Control type="text" placeholder={state} readOnly className="inputContainer"/>
+          <i className="fas fa-copy" value = {state} onClick ={onClickCopyHandler.bind(this)}></i>
+        </div>
       </div>
 
     </div>

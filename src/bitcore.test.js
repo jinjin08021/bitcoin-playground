@@ -23,3 +23,11 @@ test('Check correct wallet info given seed2', ()=>{
   expect(pub).toBe("02f4c4a807959ed062883263d518dc664df32b454e65c2603dcc9e6649d75976ea")
   expect(pri).toBe("Kx63kYmSDew2ZX2fKx7fyXfPQ1PuwB2sg54A8vPcfnQ6HScKEtKH")
 })
+
+test('Check multisig', ()=>{
+  const pubkeys = "0258c7cffd5b989053a50fce647a707ed0361843ee04dc37006c29f64c205c4c8f\n030fff3f9a4d97671113558618f4da7845fe14f5f54ac0e97b7ccaf481083d955c\n02798cde05176e37b7983140305feaf02c5cbccf959b4321b68c31f79557c08f6c"
+  const address = generateMultisigAddress(pubkeys,2)
+
+  expect(address).toBe("3H2iBXM7hTr7sorSh87UqimjCaDXwj6VRi")
+
+})

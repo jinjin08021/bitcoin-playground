@@ -79,6 +79,9 @@
 .fa-copy:hover{
   color:gray
 }
+.center{
+  text-align:center !important;
+}
 
 
 @keyframes App-logo-spin {
